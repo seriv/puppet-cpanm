@@ -51,7 +51,7 @@ class cpanm (
 
   $from = $mirror ? {
     undef   => '',
-    default => "--from ${mirror}",
+    default => "--mirror ${mirror} --mirror-only ${mirror}",
   }
   exec {"/usr/bin/perl /var/cache/cpanm-install ${from} -n App::cpanminus":
     unless  => '/usr/bin/test -x /usr/bin/cpanm -o -x /usr/local/bin/cpanm',
